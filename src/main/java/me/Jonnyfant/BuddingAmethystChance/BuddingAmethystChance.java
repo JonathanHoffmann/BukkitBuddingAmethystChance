@@ -13,8 +13,16 @@ import java.io.File;
 import java.io.IOException;
 
 public class BuddingAmethystChance extends JavaPlugin {
+    String configpath = "chance%";
     @Override
     public void onEnable() {
-        getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
+        loadConfig();
+        getServer().getPluginManager().registerEvents(new BlockBreakListener(this, configpath), this);
+    }
+
+    public void loadConfig() {
+        getConfig().addDefault(configpath, 10);
+        getConfig().options().copyDefaults(true);
+        saveConfig();
     }
 }

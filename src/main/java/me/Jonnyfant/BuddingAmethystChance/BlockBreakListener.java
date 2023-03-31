@@ -2,20 +2,23 @@ package me.Jonnyfant.BuddingAmethystChance;
 
 import java.util.Random;
 
-import javax.crypto.spec.RC2ParameterSpec;
-
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
 
 public class BlockBreakListener implements Listener {
+    private BuddingAmethystChance plugin;
+    private String conf;
+
+    public BlockBreakListener(BuddingAmethystChance pl, String configpath) {
+        plugin = pl;
+        conf = configpath;
+    }
+
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         //https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/block/BlockBreakEvent.html
@@ -26,9 +29,12 @@ public class BlockBreakListener implements Listener {
             {
                 Random random = new Random();
                 double r = random.nextDouble();
-                if (r < 0.1)
+                int thresint = plugin.getConfig().getInt(conf);
+                double threshold = thresint/100.0;
+                //p.sendMessage("Rolled a " + r + ", threshold: " + threshold + ", thresint: " + thresint);
+                if (r < threshold)
                 {
-                    event.getBlock().
+                    event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(),new ItemStack(Material.BUDDING_AMETHYST,1));
                 }
             }
         }
