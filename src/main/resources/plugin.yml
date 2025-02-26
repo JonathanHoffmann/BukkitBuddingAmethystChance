@@ -1,5 +1,5 @@
 name: BuddingAmethystChance
-main: me.Jonnyfant.BuddingAmethystChance.BuddingAmethystChance
-author: Jonnyfant
-version: 1.0
+main: me.JonathanHoffmann.BuddingAmethystChance.BuddingAmethystChance
+author: Jonathan Hoffmann
+version: ${plugin.version}
 api-version: 1.18

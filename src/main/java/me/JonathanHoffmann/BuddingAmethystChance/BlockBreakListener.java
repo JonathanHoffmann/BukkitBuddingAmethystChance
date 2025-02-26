@@ -1,4 +1,4 @@
-package me.Jonnyfant.BuddingAmethystChance;
+package me.JonathanHoffmann.BuddingAmethystChance;
 
 import java.util.Random;
 
