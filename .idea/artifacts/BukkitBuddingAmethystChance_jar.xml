@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="BukkitBuddingAmethystChance:jar">
-    <output-path>$PROJECT_DIR$</output-path>
-    <root id="archive" name="BukkitBuddingAmethystChance.jar">
-      <element id="module-output" name="BukkitBuddingAmethystChance" />
-    </root>
-  </artifact>
-</component>
